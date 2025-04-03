@@ -17,7 +17,6 @@ function disableDistractionHiding() {
 }
 
 function highlightElement(event) {
-  // Apply a subtle blue glow on hover.
   event.target.style.transition = "box-shadow 0.3s ease";
   event.target.style.boxShadow = "0 0 8px rgba(0, 123, 255, 0.5)";
 }
@@ -37,27 +36,11 @@ function removeElementHandler(event) {
   event.target.style.transform = "translateY(-20px) scale(0.5)";
   event.target.style.opacity = "0";
 
-  // Remove the element after the animation completes.
+  
   setTimeout(() => {
     event.target.remove();
   }, 700);
 }
-
-// The savePage function is no longer needed if you don't want to save the page.
-// function savePage() {
-//   const htmlContent = document.documentElement.outerHTML;
-//   const blob = new Blob([htmlContent], { type: "text/html" });
-//   const url = URL.createObjectURL(blob);
-
-//   const a = document.createElement("a");
-//   a.href = url;
-//   a.download = "undistracted_page.html";
-//   document.body.appendChild(a);
-//   a.click();
-//   document.body.removeChild(a);
-
-//   URL.revokeObjectURL(url);
-// }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "hideDistractions") {
