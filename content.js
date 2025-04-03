@@ -1,6 +1,5 @@
 console.log("🚀 content.js is running!");
 
-// Called when the popup sends the 'activateReader' message
 function activateReaderMode() {
   if (typeof Readability !== "undefined") {
     console.log("✅ Readability is loaded successfully.");
@@ -13,10 +12,7 @@ function activateReaderMode() {
 
       document.body.innerHTML = `
         <style>
-          /* 
-            Global reset for reader mode
-            Base font-size is set on body so all elements inherit it unless overridden.
-          */
+          
           body {
             background: #fafafa;
             margin: 0;
@@ -51,7 +47,6 @@ function activateReaderMode() {
             font-size: 0.9em;
           }
 
-          /* Headings within the article content */
           #reader-mode-container article h2 {
             font-size: 2em; /* 2 x base font size */
             margin-top: 1.5em;
@@ -71,12 +66,12 @@ function activateReaderMode() {
             font-weight: bold;
           }
 
-          /* Paragraphs */
+         
           #reader-mode-container article p {
             margin-bottom: 1.2em;
           }
 
-          /* Lists */
+          
           #reader-mode-container article ul,
           #reader-mode-container article ol {
             margin: 1em 2em;
@@ -85,7 +80,7 @@ function activateReaderMode() {
             margin-bottom: 0.5em;
           }
 
-          /* Blockquotes */
+          
           #reader-mode-container article blockquote {
             margin: 1em 2em;
             padding-left: 1em;
@@ -94,7 +89,7 @@ function activateReaderMode() {
             font-style: italic;
           }
 
-          /* Code blocks / inline code */
+          
           #reader-mode-container article pre,
           #reader-mode-container article code {
             font-family: "Courier New", Courier, monospace;
@@ -103,7 +98,7 @@ function activateReaderMode() {
             border-radius: 4px;
           }
 
-          /* Responsive images */
+          
           #reader-mode-container article img {
             max-width: 100%;
             height: auto;
@@ -130,7 +125,6 @@ function activateReaderMode() {
   }
 }
 
-// Listen for messages from popup (reader.js)
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "activateReader") {
     activateReaderMode();
