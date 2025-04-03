@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Reader Mode Extension",
+  "version": "1.0",
+  "description": "Activates reader mode on a specific website.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "reader.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["readability.js","content.js","hideDistraction.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
