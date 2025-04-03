@@ -1,7 +1,6 @@
 document.getElementById("activateReaderMode").addEventListener("click", () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     const tab = tabs[0];
-    // Only send message if it's an http(s) URL (avoid chrome://, etc.)
     if (!tab || !/^https?:/.test(tab.url)) {
       console.error("Cannot activate reader mode on this page.");
       return;
