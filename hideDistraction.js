@@ -1,16 +1,16 @@
-console.log("🚀 hideDistractions.js is running!");
+console.log("hideDistractions.js is running!");
 
 let isDistractionHidingMode = false;
 
 function enableDistractionHiding() {
-  console.log("👉 Distraction-hiding mode enabled. Hover over elements and click to remove them.");
+  console.log("Distraction-hiding mode enabled. Hover over elements and click to remove them.");
   document.addEventListener("mouseover", highlightElement);
   document.addEventListener("mouseout", unhighlightElement);
   document.addEventListener("click", removeElementHandler, true);
 }
 
 function disableDistractionHiding() {
-  console.log("✋ Distraction-hiding mode disabled.");
+  console.log("Distraction-hiding mode disabled.");
   document.removeEventListener("mouseover", highlightElement);
   document.removeEventListener("mouseout", unhighlightElement);
   document.removeEventListener("click", removeElementHandler, true);
@@ -31,7 +31,6 @@ function removeElementHandler(event) {
   event.preventDefault();
   event.stopPropagation();
 
-  // Animate the removal: slide up, scale down, and fade out.
   event.target.style.transition = "opacity 0.7s ease, transform 0.7s ease";
   event.target.style.transform = "translateY(-20px) scale(0.5)";
   event.target.style.opacity = "0";
