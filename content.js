@@ -3,24 +3,18 @@ console.log("🚀 content.js is running!");
 
 function activateReaderMode() {
   if (typeof Readability !== "undefined") {
-    console.log("✅ Readability is loaded successfully.");
+    console.log("Readability is loaded successfully.");
 
     const documentClone = document.cloneNode(true);
     const article = new Readability(documentClone).parse();
 
     if (article) {
-      console.log("📝 Extracted Article:", article);
+      console.log("Extracted Article:", article);
 
       
       document.body.innerHTML = `
         <style>
-          /* Import additional fonts from Google Fonts */
-          @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
-          @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-          @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-          @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
-
-          /* Global reset for reader mode */
+        
           body {
             background: #fafafa;
             margin: 0;
@@ -30,7 +24,6 @@ function activateReaderMode() {
             line-height: 1.8;
             color: #333;
           }
-          /* Reader container */
           #reader-mode-container {
             max-width: 800px;
             margin: 50px auto;
@@ -39,7 +32,6 @@ function activateReaderMode() {
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
           }
-          /* Refined Toolbar styling */
           #toolbar {
             margin-bottom: 20px;
             display: flex;
@@ -76,7 +68,7 @@ function activateReaderMode() {
           #toolbar button:hover {
             background: #0056b3;
           }
-          /* Header styling */
+          
           #reader-mode-container header {
             margin-bottom: 20px;
           }
@@ -88,7 +80,7 @@ function activateReaderMode() {
             color: #888;
             font-size: 0.9em;
           }
-          /* Article content styling */
+          
           #reader-mode-container article {
             margin-bottom: 1.2em;
           }
@@ -140,11 +132,9 @@ function activateReaderMode() {
             display: block;
             margin: 10px auto;
           }
-          /* Highlight style */
           .highlight {
             background-color: yellow;
           }
-          /* Note style */
           .note {
             background-color: #e0f7fa;
             border-bottom: 1px dashed #00796b;
@@ -244,10 +234,10 @@ function activateReaderMode() {
         }
       });
     } else {
-      console.error("⚠️ Failed to parse readable content.");
+      console.error("Failed to parse readable content.");
     }
   } else {
-    console.error("❌ Readability is still undefined!");
+    console.error("Readability is still undefined!");
   }
 }
 
